@@ -1,29 +1,59 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ricardo ❤️ Nicolh</title>
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#2b004d,#7a0066);color:#fff;text-align:center}
-header{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px}
-h1{font-size:3em;text-shadow:0 0 15px #ff7ac8}
-section{padding:30px 20px}
-.galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px;max-width:900px;margin:auto}
-.galeria img{width:100%;border-radius:18px;box-shadow:0 0 15px #ff8fd1}
-.carta{max-width:700px;margin:auto;background:rgba(255,255,255,.12);padding:20px;border-radius:18px}
-#contador{font-size:1.4em;font-weight:bold}
-.corazon{position:fixed;top:-20px;font-size:24px;animation:caer linear forwards}
-@keyframes caer{to{transform:translateY(110vh);opacity:0}}
-</style></head>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(180deg,#220033,#4b006e,#12001f);color:#fff;overflow-x:hidden}
+header{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px;position:relative}
+h1{font-size:3rem;text-shadow:0 0 20px #ff66c4} .btn{background:#ff4da6;color:#fff;padding:14px 24px;border-radius:30px;text-decoration:none}
+section{padding:40px 20px;max-width:1000px;margin:auto}
+.card{background:rgba(255,255,255,.12);padding:24px;border-radius:20px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}
+.gallery img{width:100%;border-radius:18px;cursor:pointer;box-shadow:0 0 15px #ff77cc}
+#contador{font-size:1.4rem;font-weight:bold}
+.heart{position:fixed;top:-20px;font-size:24px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh);opacity:0}}
+#lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);justify-content:center;align-items:center}
+#lightbox img{max-width:90%;max-height:90%}
+</style>
+</head>
 <body>
-<header><h1>Ricardo ❤️ Nicolh</h1><p>Nuestra historia desde el 2 de junio de 2026</p></header>
-<section><div class="carta"><h2>Para mi frugele, Nicolh ❤️</h2><p>Gracias por llegar a mi vida. Cada sonrisa, cada abrazo y cada beso hacen que te ame más. Deseo seguir escribiendo esta historia contigo por muchos años.</p></div></section>
-<section><h2>Nuestros recuerdos 📸</h2>
-<div class="galeria">
+<header>
+<h1>Ricardo ❤️ Nicolh</h1>
+<p>Nuestra historia comenzó el 2 de junio de 2026 y espero que nunca termine.</p>
+<a class="btn" href="#historia">Comenzar nuestra historia ❤️</a>
+</header>
+
+<section id="historia">
+<div class="card">
+<h2>Para mi frugele ❤️</h2>
+<p>Mi querida Nicolh: tus ojos verdes, tu sonrisa y cada momento que compartimos son un tesoro. Gracias por existir y por regalarme tantos recuerdos. Te amo hoy, mañana y siempre.</p>
+</div>
+</section>
+
+<section>
+<h2>Nuestros recuerdos 📸</h2>
+<div class="gallery">
 <img src="Foto3.jpg"><img src="IMG_20260715_181602.jpg"><img src="IMG_20260715_181610.jpg"><img src="IMG_20260715_181617.jpg">
-</div></section>
-<section><h2>❤️ Nuestro tiempo juntos ❤️</h2><p id="contador"></p></section>
+</div>
+</section>
+
+<section>
+<div class="card">
+<h2>❤️ Nuestro tiempo juntos ❤️</h2>
+<p id="contador"></p>
+</div>
+</section>
+
+<div id="lightbox" onclick="this.style.display='none'"><img id="big"></div>
+
 <script>
 const inicio=new Date("2026-06-02T00:00:00");
-function act(){let d=new Date()-inicio;let dias=Math.floor(d/86400000);let h=Math.floor(d/3600000)%24;let m=Math.floor(d/60000)%60;let s=Math.floor(d/1000)%60;contador.textContent=`${dias} días ❤️ ${h} horas ❤️ ${m} minutos ❤️ ${s} segundos`;}
-setInterval(act,1000);act();
-setInterval(()=>{let c=document.createElement('div');c.className='corazon';c.textContent='❤️';c.style.left=Math.random()*100+'vw';c.style.animationDuration=(4+Math.random()*4)+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),8000);},500);
-</script></body></html>
+function tick(){let d=Date.now()-inicio;let days=Math.floor(d/86400000),h=Math.floor(d/3600000)%24,m=Math.floor(d/60000)%60,s=Math.floor(d/1000)%60;contador.textContent=`${days} días ❤️ ${h} horas ❤️ ${m} minutos ❤️ ${s} segundos`;}
+setInterval(tick,1000);tick();
+document.querySelectorAll('.gallery img').forEach(i=>i.onclick=()=>{big.src=i.src;lightbox.style.display='flex';});
+setInterval(()=>{let e=document.createElement('div');e.className='heart';e.textContent='❤️';e.style.left=Math.random()*100+'vw';e.style.animationDuration=(4+Math.random()*4)+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),8000);},300);
+</script>
+</body></html>
