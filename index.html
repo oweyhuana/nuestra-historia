@@ -94,6 +94,54 @@ Nuestra historia desde el 2 de junio ❤️
 
 <section class="carta">
 
+<h2>❤️ Nuestro tiempo juntos ❤️</h2>
+
+<p id="contador"></p>
+
+</section>
+
+
+<script>
+
+const fechaInicio = new Date("2026-06-02T00:00:00");
+
+
+function actualizarContador(){
+
+let ahora = new Date();
+
+let diferencia = ahora - fechaInicio;
+
+
+let dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+
+let horas = Math.floor(
+(diferencia / (1000 * 60 * 60)) % 24
+);
+
+let minutos = Math.floor(
+(diferencia / (1000 * 60)) % 60
+);
+
+let segundos = Math.floor(
+(diferencia / 1000) % 60
+);
+
+
+document.getElementById("contador").innerHTML =
+dias+" días ❤️ "+
+horas+" horas ❤️ "+
+minutos+" minutos ❤️ "+
+segundos+" segundos";
+
+}
+
+
+setInterval(actualizarContador,1000);
+
+actualizarContador();
+
+</script>
 <h2>Para mi frugele ❤️</h2>
 
 <p>
