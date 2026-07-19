@@ -63,4 +63,122 @@ setInterval(tick,1000);tick();
 document.querySelectorAll('.gallery img').forEach(i=>i.onclick=()=>{big.src=i.src;lightbox.style.display='flex';});
 setInterval(()=>{let e=document.createElement('div');e.className='heart';e.textContent='❤️';e.style.left=Math.random()*100+'vw';e.style.animationDuration=(4+Math.random()*4)+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),8000);},300);
 </script>
+  <section id="final" style="text-align:center;padding:80px 20px;">
+
+<h2 style="font-size:40px;color:#ff66b3;">
+💍 ¿Quieres seguir escribiendo esta historia conmigo?
+</h2>
+
+<button id="siempre"
+style="
+padding:18px 35px;
+font-size:22px;
+border:none;
+border-radius:40px;
+background:#ff4da6;
+color:white;
+cursor:pointer;
+box-shadow:0 0 20px #ff66cc;
+margin-top:25px;
+">
+❤️ Sí, por siempre ❤️
+</button>
+
+<div id="mensajeFinal"
+style="
+display:none;
+margin-top:50px;
+font-size:24px;
+line-height:1.8;
+animation:aparecer 2s;
+">
+
+<p>
+❤️ Ahora esta historia tiene un nuevo capítulo... y espero escribir todos los demás a tu lado.
+</p>
+
+<p>
+Gracias por escanear el código que abrió esta historia... pero sobre todo, gracias por abrir tu corazón y dejarme entrar en él.
+</p>
+
+<h2 style="color:#ff66cc;">
+❤️ Te amo infinitamente, mi frugele ❤️
+</h2>
+
+<h3>
+Siempre tuyo... Ricardo ❤️
+</h3>
+
+<p>
+02 de junio de 2026 — ∞
+</p>
+
+</div>
+
+</section>
+
+<style>
+
+@keyframes aparecer{
+
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+</style>
+
+<script>
+
+document.getElementById("siempre").addEventListener("click",function(){
+
+// Vibración (Android)
+if(navigator.vibrate){
+navigator.vibrate([200,100,200,100,500]);
+}
+
+// Mostrar mensaje final
+document.getElementById("mensajeFinal").style.display="block";
+
+// Lluvia de corazones
+for(let i=0;i<80;i++){
+
+let corazon=document.createElement("div");
+
+corazon.innerHTML="❤️";
+
+corazon.style.position="fixed";
+corazon.style.left=Math.random()*100+"vw";
+corazon.style.top="-50px";
+corazon.style.fontSize=(20+Math.random()*30)+"px";
+corazon.style.pointerEvents="none";
+corazon.style.transition="all 6s linear";
+
+document.body.appendChild(corazon);
+
+setTimeout(()=>{
+
+corazon.style.top="110vh";
+corazon.style.opacity="0";
+
+},50);
+
+setTimeout(()=>{
+
+corazon.remove();
+
+},6500);
+
+}
+
+});
+
+</script>
 </body></html>
