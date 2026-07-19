@@ -1,73 +1,59 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nuestra Historia ❤️</title>
+
+<title>Ricardo ❤️ Nicolh | Nuestra Historia</title>
 
 <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
 body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:linear-gradient(#ff9acb,#ffd6e8);
-    color:white;
-    text-align:center;
-}
+background:#120018;
+    <section id="historia">
 
-header{
-    padding:50px 20px;
-}
+<h2>Nuestra historia ❤️</h2>
 
-h1{
-    font-size:3em;
-}
+<div class="carta">
 
-p{
-    font-size:1.2em;
-}
+<p>
+Nicolh, desde aquel 2 de junio comenzó algo que cambió mi vida.
+Llegaste de una manera inesperada, pero poco a poco te convertiste
+en alguien demasiado especial para mí.
+</p>
 
-.contador{
-    margin:30px auto;
-    width:90%;
-    max-width:500px;
-    background:rgba(255,255,255,.2);
-    padding:20px;
-    border-radius:20px;
-    font-size:2em;
-}
+<br>
 
-.galeria{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
-    padding:20px;
-}
+<p>
+Me enamoré de tus ojos verdes, de tu sonrisa, de tu forma de ser
+y de cada pequeño detalle que te hace única.
+Aunque la distancia a veces sea difícil, mi corazón siempre está contigo.
+</p>
 
-.galeria img{
-    width:100%;
-    border-radius:20px;
-}
+<br>
 
-footer{
-    padding:40px;
-    font-size:1.1em;
-}
-</style>
+<p>
+Gracias por cada momento, cada conversación, cada beso y cada recuerdo
+que hemos creado juntos.
+</p>
 
-</head>
+</div>
 
-<body>
+</section>
 
-<header>
-<h1>Ricardo ❤️ Nicolh</h1>
 
-<p>Desde el 2 de junio comenzó la historia más bonita de mi vida.</p>
+<section>
 
-<div class="contador" id="contador"></div>
+<h2>Nuestros momentos 📸</h2>
 
-</header>
-
-<section class="galeria">
+<div class="galeria">
 
 <img src="foto1.jpg">
 <img src="foto2.jpg">
@@ -75,47 +61,148 @@ footer{
 <img src="foto4.jpg">
 <img src="foto5.jpg">
 
+</div>
+
 </section>
 
-<footer>
 
-<h2>Te amo muchísimo ❤️</h2>
+<section>
+
+<h2>Tiempo juntos ⏳❤️</h2>
+
+<div class="contador" id="contador">
+Contando nuestro amor...
+</div>
+
+</section>
+
+
+<section>
+
+<div class="carta">
+
+<h2>Para ti, mi frugele ❤️</h2>
 
 <p>
-Gracias por llegar a mi vida.
-Cada segundo contigo vale la pena y deseo que esta historia nunca tenga final.
+Quiero que nunca olvides lo importante que eres para mí.
+Eres esa persona que llegó a mi vida y logró hacer mis días más bonitos.
 </p>
 
-</footer>
+<br>
+
+<p>
+No importa la distancia, siempre voy a elegirte.
+Quiero seguir creando recuerdos contigo y escribir muchos capítulos más
+de nuestra historia.
+</p>
+
+<br>
+
+<p>
+Te amo muchísimo, Nicolh ❤️
+</p>
+
+</div>
+
+</section>
+    <section>
+
+<h2>Siempre tú ❤️</h2>
+
+<div class="carta">
+
+<p>
+Si algún día dudas de lo mucho que significas para mí,
+recuerda que desde que llegaste has dejado una huella enorme en mi corazón.
+</p>
+
+<br>
+
+<p>
+Mi deseo es seguir sumando días, meses y años a tu lado.
+Gracias por ser tú, Nicolh.
+</p>
+
+<h2>❤️ Te amo ❤️</h2>
+
+</div>
+
+</section>
+
 
 <script>
 
-const fechaInicio = new Date("2026-06-02T00:00:00");
+const inicio = new Date("2026-06-02T00:00:00");
 
-function actualizar(){
+function actualizarTiempo(){
 
-const ahora = new Date();
+let ahora = new Date();
 
-const diferencia = ahora-fechaInicio;
+let diferencia = ahora - inicio;
 
-const dias=Math.floor(diferencia/(1000*60*60*24));
 
-const horas=Math.floor((diferencia%(1000*60*60*24))/(1000*60*60));
+let dias = Math.floor(diferencia / (1000*60*60*24));
 
-const minutos=Math.floor((diferencia%(1000*60*60))/60000);
+let horas = Math.floor(
+(diferencia % (1000*60*60*24)) /
+(1000*60*60)
+);
 
-const segundos=Math.floor((diferencia%(60000))/1000);
+let minutos = Math.floor(
+(diferencia % (1000*60*60)) /
+(1000*60)
+);
 
-document.getElementById("contador").innerHTML=
-`${dias} días ${horas} horas ${minutos} minutos ${segundos} segundos juntos ❤️`;
+let segundos = Math.floor(
+(diferencia % (1000*60)) /
+1000
+);
+
+
+document.getElementById("contador").innerHTML =
+dias+" días ❤️ "+
+horas+" horas ❤️ "+
+minutos+" minutos ❤️ "+
+segundos+" segundos";
 
 }
 
-setInterval(actualizar,1000);
+setInterval(actualizarTiempo,1000);
 
-actualizar();
+actualizarTiempo();
+
+
+
+function crearCorazon(){
+
+let corazon=document.createElement("div");
+
+corazon.className="corazon";
+
+corazon.innerHTML="❤️";
+
+corazon.style.left=Math.random()*100+"vw";
+
+corazon.style.animationDuration=
+(4+Math.random()*6)+"s";
+
+document.body.appendChild(corazon);
+
+
+setTimeout(()=>{
+
+corazon.remove();
+
+},8000);
+
+}
+
+
+setInterval(crearCorazon,500);
+
 
 </script>
+
 
 </body>
 </html>
